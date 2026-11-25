@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7f4" />
+    <meta name="description" content="Simulasi pembelajaran Certainty Factor untuk membandingkan dukungan gejala pada influenza dan faringitis." />
+    <title>Sistem Pakar Pernapasan · Certainty Factor</title>
+    <script type="module" crossorigin src="./assets/index-D0CHrjJt.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CxDDmxIe.css">
+  </head>
+  <body>
+    <a class="skip" href="#gejala">Lewati ke input gejala</a>
+    <header class="topbar">
+      <div class="shell topbar-inner">
+        <a class="brand" href="#mulai"><span class="brand-mark" aria-hidden="true">+</span> Sistem Pakar <span class="brand-sub">/ CF</span></a>
+        <nav aria-label="Navigasi utama">
+          <a href="#gejala">Simulasi</a>
+          <a href="#perhitungan">Perhitungan</a>
+          <a href="#tentang">Metode</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="shell" id="mulai">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> Praktikum Informatika Medis</p>
+          <h1>Sistem pakar<br /><em>keluhan pernapasan</em></h1>
+          <p class="hero-description">Bandingkan dukungan gejala terhadap Influenza dan Faringitis dengan metode Certainty Factor.</p>
+        </div>
+        <div class="hero-method" aria-label="Kondisi dalam model">
+          <p>Kondisi dalam model</p>
+          <div><span>P2</span> Influenza</div>
+          <div><span>P3</span> Faringitis</div>
+        </div>
+      </div>
+
+      <aside class="notice" aria-label="Peringatan medis">
+        <span aria-hidden="true" class="notice-icon">!</span>
+        <p><strong>Sesak napas atau nyeri dada memerlukan penilaian medis segera.</strong> Simulasi ini hanya untuk pembelajaran. Tidak untuk diagnosis, pemberian resep, atau penilaian keparahan. COVID-19 di luar cakupan model.</p>
+      </aside>
+
+      <div class="workspace">
+        <section class="panel" id="gejala" aria-labelledby="judul-gejala">
+          <header class="panel-head">
+            <h2 id="judul-gejala">Input gejala</h2>
+            <p>Pilih tingkat keyakinan bahwa setiap gejala dialami. Nilai awal setiap gejala adalah 0 (Tidak).</p>
+          </header>
+          <form id="form">
+            <div id="fields" class="fields"></div>
+            <p id="input-status" class="form-status" role="status"></p>
+            <div class="actions">
+              <button id="hitung" type="submit" class="primary" disabled>Hitung <span aria-hidden="true">→</span></button>
+              <button id="contoh" type="button" class="secondary">Isi contoh Excel</button>
+              <button type="reset" class="quiet">Reset</button>
+            </div>
+          </form>
+          <noscript>Aktifkan JavaScript untuk menjalankan simulasi.</noscript>
+        </section>
+
+        <section class="panel result-panel" id="hasil" aria-labelledby="judul-hasil">
+          <header class="panel-head">
+            <h2 id="judul-hasil" tabindex="-1">Hasil simulasi</h2>
+            <p>Dukungan model untuk masing-masing kondisi</p>
+          </header>
+          <div id="ringkasan" aria-live="polite">
+            <p class="placeholder">Tekan Hitung untuk melihat skor CF dan peringkat.</p>
+          </div>
+          <p class="result-note">Skor CF menunjukkan dukungan gejala dalam model. Skor ini bukan probabilitas diagnosis dan jumlahnya dapat berbeda dari 100%.</p>
+        </section>
+      </div>
+
+      <section class="panel lower-panel" id="perhitungan" aria-labelledby="judul-perhitungan">
+        <header class="panel-head">
+          <h2 id="judul-perhitungan">Perhitungan bertahap</h2>
+          <p>Telusuri aturan R01–R16. Angka ditampilkan hingga enam desimal dan dihitung dengan presisi 50 digit.</p>
+        </header>
+        <div class="formula-strip" aria-label="Rumus Certainty Factor">
+          <span>CF bukti = bobot × CF pengguna</span>
+          <span>CF gabungan = CF lama + CF bukti × (1 − CF lama)</span>
+        </div>
+        <div id="langkah">
+          <p class="placeholder">Rincian setiap aturan muncul setelah perhitungan.</p>
+        </div>
+      </section>
+
+      <section class="panel lower-panel" id="tentang" aria-labelledby="judul-tentang">
+        <header class="panel-head">
+          <h2 id="judul-tentang">Tentang metode</h2>
+          <p>Basis pengetahuan, cara penggabungan bukti, dan batas simulasi.</p>
+        </header>
+        <div id="metode" class="about-grid"></div>
+      </section>
+    </main>
+
+    <footer class="shell footer">
+      <span>Sistem Pakar Pernapasan · Proyek UTS Informatika Medis</span>
+      <a href="#mulai">Kembali ke atas ↑</a>
+    </footer>
+  </body>
+</html>
